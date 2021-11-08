@@ -17,6 +17,7 @@
 		7664C8DB2739197100D17B97 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664C8DA2739197100D17B97 /* CountriesViewModel.swift */; };
 		7664C8DD2739219900D17B97 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664C8DC2739219900D17B97 /* Model.swift */; };
 		7664C8DF273935DB00D17B97 /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664C8DE273935DB00D17B97 /* CountryDetail.swift */; };
+		76911BD727395E7200626289 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 76911BD627395E7200626289 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7664C8DA2739197100D17B97 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
 		7664C8DC2739219900D17B97 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7664C8DE273935DB00D17B97 /* CountryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
+		76911BD627395E7200626289 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +71,31 @@
 				7664C8C82739103C00D17B97 /* Countries.swift */,
 				7664C8DE273935DB00D17B97 /* CountryDetail.swift */,
 				7664C8CA2739103C00D17B97 /* Main.storyboard */,
-				7664C8D82739107B00D17B97 /* WebService.swift */,
-				7664C8CD2739104000D17B97 /* Assets.xcassets */,
 				7664C8CF2739104000D17B97 /* LaunchScreen.storyboard */,
+				7664C8CD2739104000D17B97 /* Assets.xcassets */,
 				7664C8D22739104000D17B97 /* Info.plist */,
+				76911BD827395E9F00626289 /* Model */,
+				76911BD927395EC100626289 /* Helper Classes */,
+				76911BD627395E7200626289 /* README.md */,
+			);
+			path = Countries;
+			sourceTree = "<group>";
+		};
+		76911BD827395E9F00626289 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				7664C8DC2739219900D17B97 /* Model.swift */,
 				7664C8DA2739197100D17B97 /* CountriesViewModel.swift */,
 			);
-			path = Countries;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		76911BD927395EC100626289 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7664C8D82739107B00D17B97 /* WebService.swift */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +158,7 @@
 			files = (
 				7664C8D12739104000D17B97 /* LaunchScreen.storyboard in Resources */,
 				7664C8CE2739104000D17B97 /* Assets.xcassets in Resources */,
+				76911BD727395E7200626289 /* README.md in Resources */,
 				7664C8CC2739103C00D17B97 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 class Webservice: NSObject, URLSessionDelegate {
     
     static func fetchAllCountries(completion: @escaping (Result<Data, Error>) -> Void) {
@@ -39,42 +36,5 @@ class Webservice: NSObject, URLSessionDelegate {
         task.resume()
     }
     
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        
-        if challenge.protectionSpace.serverTrust == nil {
-            completionHandler(.useCredential, nil)
-        } else {
-            let trust: SecTrust = challenge.protectionSpace.serverTrust!
-            let credential = URLCredential(trust: trust)
-            completionHandler(.useCredential, credential)
-        }
-    }
-    
-    
 }
 
-extension SecTrust {
-
-    var isSelfSigned: Bool? {
-        guard SecTrustGetCertificateCount(self) == 1 else {
-            return false
-        }
-        guard let cert = SecTrustGetCertificateAtIndex(self, 0) else {
-            return nil
-        }
-        return cert.isSelfSigned
-    }
-}
-
-extension SecCertificate {
-
-    var isSelfSigned: Bool? {
-        guard
-            let subject = SecCertificateCopyNormalizedSubjectSequence(self),
-            let issuer = SecCertificateCopyNormalizedIssuerSequence(self)
-        else {
-            return nil
-        }
-        return subject == issuer
-    }
-}
