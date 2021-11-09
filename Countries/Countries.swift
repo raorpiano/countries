@@ -40,25 +40,6 @@ class CountryViewController: UIViewController {
         tableView.addSubview(refreshControl)
         
         self.fecthData(self)
-//        viewModel.getAllCountries { result in
-//            self.activityIndicator.isHidden = true
-//
-//            switch result {
-//            case .success(let countries):
-//                self.countries = countries
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//
-//            case .failure(let error):
-//                print("Error: ", error.localizedDescription)
-//
-//                let alert = UIAlertController(title: "Problem connecting to the server.", message: "Check your internet connection.", preferredStyle: .alert)
-//                
-//                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-//            }
-//        }
     }
     
     @objc func fecthData(_ sender: AnyObject) {

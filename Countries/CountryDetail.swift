@@ -46,7 +46,7 @@ class CountryDetail: UIViewController {
             .foregroundColor: UIColor.black,
             .font: UIFont.boldSystemFont(ofSize: 17.0)
         ]
-        var detailAttributedText = NSMutableAttributedString(string: "Capital: ", attributes: attributes)
+        let detailAttributedText = NSMutableAttributedString(string: "Capital: ", attributes: attributes)
         detailAttributedText.append(NSAttributedString(string: self.capital))
         
         detailAttributedText.append(NSAttributedString(string: "\nCurrency: ", attributes: attributes))
