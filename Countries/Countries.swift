@@ -23,6 +23,8 @@ class CountryViewController: UIViewController {
     var searching:Bool = false
     var searchedCountry:[Country] = [Country]()
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,17 +34,52 @@ class CountryViewController: UIViewController {
         searchBar.delegate = self
         self.activityIndicator.startAnimating()
         
+        /* Added refresh control. To fetch data when a connection problem was encountered */
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.fecthData(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
+        self.fecthData(self)
+//        viewModel.getAllCountries { result in
+//            self.activityIndicator.isHidden = true
+//
+//            switch result {
+//            case .success(let countries):
+//                self.countries = countries
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//
+//            case .failure(let error):
+//                print("Error: ", error.localizedDescription)
+//
+//                let alert = UIAlertController(title: "Problem connecting to the server.", message: "Check your internet connection.", preferredStyle: .alert)
+//                
+//                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
+    }
+    
+    @objc func fecthData(_ sender: AnyObject) {
         viewModel.getAllCountries { result in
+            self.activityIndicator.isHidden = true
+            self.refreshControl.endRefreshing()
+            
             switch result {
             case .success(let countries):
                 self.countries = countries
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.activityIndicator.isHidden = true
                 }
 
             case .failure(let error):
                 print("Error: ", error.localizedDescription)
+                
+                let alert = UIAlertController(title: "Problem connecting to the server.", message: "Check your internet connection.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
