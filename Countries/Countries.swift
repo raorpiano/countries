@@ -28,6 +28,7 @@ class CountryViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.keyboardDismissMode = .onDrag
         searchBar.delegate = self
         self.activityIndicator.startAnimating()
         
@@ -141,4 +142,7 @@ extension CountryViewController: UISearchBarDelegate {
         self.searchBar.text = ""
         self.tableView.reloadData()
     }
+    
 }
+
+

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Flag: Decodable, Hashable {
+struct Flag: Codable, Hashable {
     let svg: String
     let png: String
     
@@ -17,7 +17,7 @@ struct Flag: Decodable, Hashable {
     }
 }
 
-struct Currency: Decodable, Hashable {
+struct Currency: Codable, Hashable {
     let code: String
     let name: String
     let symbol: String
@@ -29,7 +29,7 @@ struct Currency: Decodable, Hashable {
     }
 }
 
-struct Language: Decodable, Hashable {
+struct Language: Codable, Hashable {
     let iso639_1: String?
     let iso639_2: String?
     let name: String?
@@ -43,7 +43,7 @@ struct Language: Decodable, Hashable {
     }
 }
 
-struct Translation: Decodable, Hashable {
+struct Translation: Codable, Hashable {
     let br: String
     let pt: String
     let nl: String
@@ -71,7 +71,7 @@ struct Translation: Decodable, Hashable {
     }
 }
 
-struct RegionalBloc: Decodable, Hashable {
+struct RegionalBloc: Codable, Hashable {
     let acronym: String
     let name: String
     
@@ -81,7 +81,7 @@ struct RegionalBloc: Decodable, Hashable {
     }
 }
 
-struct Country: Decodable, Hashable {
+struct Country: Codable, Hashable {
     let name: String
 //    let topLevelDomain: [String]?
 //    let alpha2Code: String?
